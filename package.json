@@ -1,0 +1,28 @@
+{
+  "name": "tznews_aggregator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "news",
+    "aggregator",
+    "data",
+    "tz",
+    "kijacode"
+  ],
+  "author": "Kijacode",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cloudinary": "^1.21.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.13",
+    "nodemon": "^2.0.3",
+    "puppeteer": "^3.0.4",
+    "socket.io": "^2.3.0"
+  }
+}
