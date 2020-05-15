@@ -157,7 +157,7 @@ cloudinary.uploader.upload_stream(
         headless: true });
       const page = await browser.newPage();
       await page.setDefaultNavigationTimeout(0);
-      await page.setViewport({ width: 500, height: 900 });
+      await page.setViewport({ width: 500, height: 1000 });
       await page.goto("https://www.bbc.com/swahili", {
         waitUntil: "networkidle2",
       });
@@ -169,7 +169,7 @@ cloudinary.uploader.upload_stream(
       const screenshotBuffer  = await element.screenshot({
        encoding: 'binary',
         fullPage: false,
-        clip: { x: -120, y: -1222, width: 500, height: 900 },
+        clip: { x: -120, y: -1222, width: 500, height: 1000 },
       });
       await browser.close();
 
