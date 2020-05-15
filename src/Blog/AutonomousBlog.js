@@ -169,7 +169,7 @@ cloudinary.uploader.upload_stream(
       const screenshotBuffer  = await element.screenshot({
        encoding: 'binary',
         fullPage: false,
-        clip: { x: -120, y: -1222, width: 500, height: 900 },
+        clip: { x: -120, y: -1222, width: 500, height: 20000 },
       });
       await browser.close();
 
