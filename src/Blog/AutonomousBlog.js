@@ -22,9 +22,9 @@ module.exports = {
 
       const browser = await puppeteer.launch({
         
-        'args' : [
+        args : [
           '--no-sandbox',
-          '--disable-setuid-sandbox'
+          // '--disable-setuid-sandbox'
         ],
         headless:true});
       const page = await browser.newPage();
@@ -83,9 +83,9 @@ cloudinary.uploader.upload_stream(
     //itv superbrand
     (async () => {
       const browser = await puppeteer.launch({ 
-        'args' : [
+        args : [
           '--no-sandbox',
-          '--disable-setuid-sandbox'
+          // '--disable-setuid-sandbox'
         ],
         headless: true });
       const page = await browser.newPage();
@@ -150,9 +150,9 @@ cloudinary.uploader.upload_stream(
     // //bbc swahili
     (async () => {
       const browser = await puppeteer.launch({
-        'args' : [
+        args : [
           '--no-sandbox',
-          '--disable-setuid-sandbox'
+          // '--disable-setuid-sandbox'
         ],
         headless: true });
       const page = await browser.newPage();
@@ -216,9 +216,9 @@ cloudinary.uploader.upload_stream(
     //itv superbrand
     (async () => {
       const browser = await puppeteer.launch({ 
-        'args' : [
+        args : [
           '--no-sandbox',
-          '--disable-setuid-sandbox'
+          // '--disable-setuid-sandbox'
         ],
         headless: true });
       const page = await browser.newPage();
