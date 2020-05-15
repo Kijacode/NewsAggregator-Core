@@ -20,7 +20,13 @@ module.exports = {
     console.log("in");
     (async () =>{
 
-      const browser = await puppeteer.launch({headless:true});
+      const browser = await puppeteer.launch({
+        
+        args: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+        ],
+        headless:true});
       const page = await browser.newPage();
       await page.setDefaultNavigationTimeout(0);
       await page.setViewport({width:500,height:700});
@@ -76,7 +82,12 @@ cloudinary.uploader.upload_stream(
   itv: (req, res, next) => {
     //itv superbrand
     (async () => {
-      const browser = await puppeteer.launch({ headless: true });
+      const browser = await puppeteer.launch({ 
+        args: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+        ],
+        headless: true });
       const page = await browser.newPage();
       await page.setDefaultNavigationTimeout(0);
       await page.setViewport({ width: 500, height: 700 });
@@ -138,7 +149,12 @@ cloudinary.uploader.upload_stream(
   bbcSwahili: (req, res, next) => {
     // //bbc swahili
     (async () => {
-      const browser = await puppeteer.launch({ headless: true });
+      const browser = await puppeteer.launch({
+        args: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+        ],
+        headless: true });
       const page = await browser.newPage();
       await page.setDefaultNavigationTimeout(0);
       await page.setViewport({ width: 500, height: 700 });
@@ -199,7 +215,12 @@ cloudinary.uploader.upload_stream(
   lemutuz: (req, res, next) => {
     //itv superbrand
     (async () => {
-      const browser = await puppeteer.launch({ headless: true });
+      const browser = await puppeteer.launch({ 
+        args: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+        ],
+        headless: true });
       const page = await browser.newPage();
       await page.setDefaultNavigationTimeout(0);
       await page.setViewport({ width: 1200, height: 700 });
