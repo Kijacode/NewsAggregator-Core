@@ -3,7 +3,10 @@ const Blog = require("./BlogModel");
 const puppeteer = require("puppeteer");
 const cloudinary = require("cloudinary").v2;
 const cloudConfig = require("../../config/development");
-const express = require("express");
+
+
+const uploadOptions = {};
+
 cloudinary.config({
 
     cloud_name: cloudConfig.cloud_name,
@@ -28,19 +31,20 @@ module.exports = {
 (
     async () => {
 
-        const browser = await puppeteer.launch({headless:false});
+        const browser = await puppeteer.launch({headless:true});
         const page = await browser.newPage();
+        await page.setDefaultNavigationTimeout(0);
         await page.setViewport({width:500,height:700});
         await page.goto("https://millardayo.com/category/top-stories/",{waitUntil :"networkidle2"});
        // await page.click('.widget-home-wrapper',{delay: 100});
 
         //taking screenshot
-        await page.screenshot({
-          path: express.static(__dirname + '/assets/ayo.png'),fullPage:false});
+        const screenshotBuffer =    await page.screenshot({
+          encoding: 'binary'});
         await browser.close();
-        
-  cloudinary.uploader.upload(
-    express.static(__dirname + '/assets/ayo.png'),
+       
+  cloudinary.uploader.upload_stream(
+    uploadOptions,
   
     function (error, result) {
       console.log(result.url, error);
@@ -50,7 +54,7 @@ module.exports = {
       req.posturl = result.url;
       next();
     }
-  );
+  ).end(screenshotBuffer);
     }
 )();
 
