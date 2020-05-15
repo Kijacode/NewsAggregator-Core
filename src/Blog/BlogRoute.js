@@ -20,7 +20,7 @@ router.get("/allblogs",blogController.millardAyo,blogController.millardAyoDb,blo
 
 
 
-router.get("/blogchecks",AutonomousBlog.millardAyo,AutonomousBlog.millardAyoDb,AutonomousBlog.lemutuz,AutonomousBlog.lemutuzDb,AutonomousBlog.itv,AutonomousBlog.itvDb,AutonomousBlog.bbcSwahili,AutonomousBlog.bbcSwahiliDb,(req,res,next) =>{
+router.get("/blogchecks",AutonomousBlog.bbcSwahili,AutonomousBlog.bbcSwahiliDb,AutonomousBlog.millardAyo,AutonomousBlog.millardAyoDb,AutonomousBlog.lemutuz,AutonomousBlog.lemutuzDb,AutonomousBlog.itv,AutonomousBlog.itvDb,(req,res,next) =>{
   console.log("hello kijacode");
   return null;
   });
