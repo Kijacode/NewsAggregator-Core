@@ -157,7 +157,7 @@ cloudinary.uploader.upload_stream(
         headless: true });
       const page = await browser.newPage();
       await page.setDefaultNavigationTimeout(0);
-      await page.setViewport({ width: 500, height: 700 });
+      await page.setViewport({ width: 500, height: 2000 });
       await page.goto("https://www.bbc.com/swahili", {
         waitUntil: "networkidle2",
       });
