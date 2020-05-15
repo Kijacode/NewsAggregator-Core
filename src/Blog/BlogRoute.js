@@ -20,6 +20,13 @@ router.get("/allblogs",blogController.millardAyo,blogController.millardAyoDb,blo
 
 
 
+router.get("/blogchecks",AutonomousBlog.millardAyo,AutonomousBlog.millardAyoDb,AutonomousBlog.lemutuz,AutonomousBlog.lemutuzDb,AutonomousBlog.itv,AutonomousBlog.itvDb,AutonomousBlog.bbcSwahili,AutonomousBlog.bbcSwahiliDb,(req,res,next) =>{
+  console.log("hello kijacode");
+  return null;
+  });
+
+
+
 
 
 module.exports = router;
