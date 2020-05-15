@@ -1,6 +1,6 @@
 const express = require("express");
-
 const router = express.Router();
+const AutonomousBlog = require("../Blog/AutonomousBlog");
 
 const blogController = require("./Blog.controller");
 

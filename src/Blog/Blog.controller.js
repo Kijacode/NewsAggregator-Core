@@ -92,6 +92,7 @@ await blog.save((error,result) =>{
 (async () => {
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
+    await page.setDefaultNavigationTimeout(0);
     await page.setViewport({ width: 500, height: 700 });
     await page.goto("https://www.itv.co.tz/news", { waitUntil: "networkidle2" });
     // await page.click('.widget-home-wrapper',{delay: 100});
@@ -99,17 +100,16 @@ await blog.save((error,result) =>{
     const element = await page.$("body > div.layout-center.w100");
   
     //taking screenshot
-    await element.screenshot({
-      path:
-      express.static(__dirname + '/assets/itv.png'),
+    const screenshotBuffer  = await element.screenshot({
+      encoding: 'binary',
       fullPage: false,
       clip: { x: -120, y: -1222, width: 500, height: 900 },
     });
   
     await browser.close();
   
-    cloudinary.uploader.upload(
-      express.static(__dirname + '/assets/itv.png'),
+    cloudinary.uploader.upload_stream(
+      uploadOptions,
       
       function (error, result) {
         console.log(result.url, error);
@@ -118,7 +118,7 @@ await blog.save((error,result) =>{
         req.itv_posturl = result.url;
         next();
       }
-    );
+    ).end(screenshotBuffer);
    
   })();
   
@@ -155,8 +155,9 @@ await blog.save((error,result) =>{
 (
     async () => {
 
-        const browser = await puppeteer.launch({headless:false});
+        const browser = await puppeteer.launch({headless:true});
         const page = await browser.newPage();
+        await page.setDefaultNavigationTimeout(0);
         await page.setViewport({width:500,height:700});
         await page.goto("https://www.bbc.com/swahili",{waitUntil :"networkidle2"});
        // await page.click('.widget-home-wrapper',{delay: 100});
@@ -164,12 +165,13 @@ await blog.save((error,result) =>{
         const element = await page.$("#root");
 
         //taking screenshot
-        await element.screenshot({path: express.static(__dirname + '/assets/bbc.png'),  fullPage:false  ,clip:{x:-120,y:-1222,width:500,height:900} });
+        const screenshotBuffer = await element.screenshot({
+          encoding: 'binary',  fullPage:false  ,clip:{x:-120,y:-1222,width:500,height:900} });
               await browser.close();
 
               
-    cloudinary.uploader.upload(
-      express.static(__dirname + '/assets/bbc.png'),
+    cloudinary.uploader.upload_stream(
+      uploadOptions,
         
         function (error, result) {
           console.log(result.url, error);
@@ -178,7 +180,7 @@ await blog.save((error,result) =>{
           req.bbc_posturl = result.url;
           next();
         }
-      );
+      ).end(screenshotBuffer);
     }
 )();
   },
@@ -213,8 +215,9 @@ await blog.save((error,result) =>{
     //itv superbrand
 (async () => {
    
-            const browser = await puppeteer.launch({headless:false});
+            const browser = await puppeteer.launch({headless:true});
             const page = await browser.newPage();
+            await page.setDefaultNavigationTimeout(0);
             await page.setViewport({width:1200,height:700});
             await page.goto("https://lemutuz.co.tz/",{waitUntil :"networkidle2"});
           //  await page.click('.content-wrap col-md-8r',{delay: 100});
@@ -222,13 +225,13 @@ await blog.save((error,result) =>{
          const element = await page.$("#page-content-wrap > div.has-sb.container.bkwrapper.bksection > div > div.content-wrap.col-md-8");
     
             //taking screenshot
-            await element.screenshot({path:
-              express.static(__dirname + '/assets/lemutuz.png'),  fullPage:false  ,clip:{x:-120,y:-1222,width:900,height:500} });
+            const screenshotBuffer =    await element.screenshot({
+              encoding: 'binary',  fullPage:false  ,clip:{x:-120,y:-1222,width:900,height:500} });
             await browser.close();
       
 
-  cloudinary.uploader.upload(
-    express.static(__dirname + '/assets/lemutuz.png'),
+  cloudinary.uploader.upload_stream(
+    uploadOptions,
     
     function (error, result) {
       console.log(result.url, error);
@@ -237,7 +240,7 @@ await blog.save((error,result) =>{
       req.lemutuz_posturl = result.url;
       next();
     }
-  );
+  ).end(screenshotBuffer);
  
 })();
 
@@ -262,23 +265,5 @@ await blog.save((error,result) =>{
         next(error);
     }
 });
-  
-
-},
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  },
 }
