@@ -3,10 +3,10 @@ let CronJob = require('cron').CronJob;
 const request = require('request');
 
 var job = new CronJob(
-    '*/30 * * * * *',
+    '*/1800 * * * * *',
     function() {
 		// API call goes here
-console.log("running a task every minute");
+console.log("running a task every 30 minute");
 request('https://newsroute.herokuapp.com/v1/blog/blogchecks', function (error, response, body) {
    if (!error && response.statusCode == 200) {
 
