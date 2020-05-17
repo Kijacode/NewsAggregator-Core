@@ -3,7 +3,7 @@ let CronJob = require('cron').CronJob;
 const request = require('request');
 
 var job = new CronJob(
-    '*/1800 * * * * *',
+    '*/10 * * * * *',
     function() {
 		// API call goes here
 console.log("running a task every 30 minute");
