@@ -5,7 +5,12 @@ News aggregator CORE is a News Aggregator backend stack which  is a simple,optim
 
 ## Get started with this Project 
 
-Single web application  **Fork or download it**. All New Web Capabilities as one Package.
+Single web application  **Fork or clone it**
+  
+  ```bash
+ git clone <repo code url>
+```
+
 
 ### Install packages/modules used via NPM
 
