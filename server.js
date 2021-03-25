@@ -44,20 +44,3 @@ const blogs = () =>{
 
 server.listen(config.port);
 
-//milard
-// (
-//     async () => {
-
-//         const browser = await puppeteer.launch({headless:false});
-//         const page = await browser.newPage();
-//         await page.setViewport({width:500,height:700});
-//         await page.goto("https://millardayo.com/category/top-stories/",{waitUntil :"networkidle2"});
-//        // await page.click('.widget-home-wrapper',{delay: 100});
-
-//         //taking screenshot
-//         await page.screenshot({path:"C://Users//Code HQ//Documents//GITHUB//NEWSAGGREGATOR//backend//assets//fil3.png",fullPage:false});
-//         await browser.close();
-//     }
-// )();
-
-//lemutuz
